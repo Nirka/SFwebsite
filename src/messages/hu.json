@@ -1,0 +1,389 @@
+{
+  "metadata": {
+    "title": "StudyFlow — Vállalati klinikai kutatásmenedzsment platform",
+    "description": "Munkafolyamatok, megfelelőség, résztvevők és dokumentáció egységesítése egyetlen vállalati platformon, amely orvosi központok számára készült."
+  },
+  "header": {
+    "nav": {
+      "product": "Termék",
+      "solutions": "Megoldások",
+      "security": "Biztonság",
+      "about": "Rólunk"
+    },
+    "cta": "Demó kérése",
+    "toggleMenu": "Menü"
+  },
+  "hero": {
+    "badge": "Vállalati klinikai kutatási platform",
+    "title": "Teljes kontroll a klinikai kutatási műveletek felett",
+    "subtitle": "Munkafolyamatok, megfelelőség, résztvevők és dokumentáció egységesítése — egyetlen vállalati platformon, amely orvosi központok számára készült.",
+    "description": "A StudyFlow struktúrát és átláthatóságot biztosít a klinikai kutatásban az operatív menedzsment, a szabályozási folyamatok és a szponzori együttműködés valós idejű összekapcsolásával.",
+    "ctaPrimary": "Demó kérése",
+    "ctaSecondary": "Hogyan működik"
+  },
+  "who": {
+    "title": "Kutatásorientált orvosi központok számára készült",
+    "subtitle": "A klinikai kutatást irányító, felügyelő és végrehajtó emberek valós igényei köré tervezve.",
+    "audiences": {
+      "hospital": {
+        "title": "Kórházi vezetés",
+        "description": "Átláthatóság és kontroll az összes klinikai kutatási tevékenység felett. Megfelelőség, teljesítmény és erőforrás-felhasználás nyomon követése egyetlen felületen."
+      },
+      "research": {
+        "title": "Kutatási egységek",
+        "description": "Több vizsgálat koordinálása strukturált munkafolyamatokkal, résztvevő-kezeléssel és következetes végrehajtással csapatok és osztályok között."
+      },
+      "finance": {
+        "title": "Pénzügy és adminisztráció",
+        "description": "Költségvetés-összehangolás, szabályozási dokumentáció és jelentéskészítés felügyelete átlátható folyamatokkal, amelyek csökkentik az adminisztratív terheket."
+      }
+    }
+  },
+  "problem": {
+    "title": "A klinikai kutatás összetett — és nehezen kontrollálható",
+    "subtitle": "Az orvosi központok olyan működési kihívásokkal szembesülnek, amelyek lassítják a kutatást és csökkentik az intézményi felügyeletet.",
+    "items": {
+      "disconnected": {
+        "title": "Szétkapcsolt rendszerek",
+        "description": "A működés, a megfelelőség és a pénzügy különálló eszközökön fut, közös kontextus nélkül."
+      },
+      "spreadsheet": {
+        "title": "Táblázatfüggőség",
+        "description": "A kritikus adatok táblázatokban élnek, verziókonfliktusokat és manuális hibákat okozva."
+      },
+      "visibility": {
+        "title": "Korlátozott átláthatóság",
+        "description": "A vizsgálat előrehaladását, a szűk keresztmetszeteket és a megfelelőségi állapotot nehéz valós időben nyomon követni."
+      },
+      "overload": {
+        "title": "Adminisztratív túlterheltség",
+        "description": "A kutatócsapatok túl sok időt töltenek koordinációs feladatokkal a kutatás végrehajtása helyett."
+      },
+      "documents": {
+        "title": "Széttagolt dokumentum-munkafolyamatok",
+        "description": "A szabályozási dokumentumok, hozzájárulási nyilatkozatok és jóváhagyások szétkapcsolt folyamatokban kezelődnek."
+      }
+    }
+  },
+  "solution": {
+    "title": "Egységes operatív és megfelelőségi réteg",
+    "subtitle": "A StudyFlow egyetlen platformba központosítja a klinikai kutatás menedzsmentjét — strukturált munkafolyamatokat, valós idejű átláthatóságot és következetes végrehajtást biztosítva minden vizsgálatban.",
+    "operations": {
+      "title": "Műveletek",
+      "description": "Vizsgálati életciklus, ütemezés, résztvevő-követés"
+    },
+    "compliance": {
+      "title": "Megfelelőség",
+      "description": "eHozzájárulás, dokumentumok, szabályozási munkafolyamatok"
+    },
+    "sponsors": {
+      "title": "Szponzorok",
+      "description": "Átlátható együttműködés, KPI-ok és vizsgálati pipeline átláthatóság"
+    },
+    "hubLabel": "Study\nFlow"
+  },
+  "capabilities": {
+    "title": "Alapvető képességek",
+    "subtitle": "Négy integrált pillér, amely struktúrát, megfelelőséget és átláthatóságot biztosít a klinikai kutatási műveletekhez.",
+    "items": {
+      "execution": {
+        "title": "Szabványosított és kontrollált vizsgálat-végrehajtás",
+        "description": "A teljes vizsgálati életciklus kezelése a beállítástól a lezárásig strukturált, megismételhető munkafolyamatokkal.",
+        "features": [
+          "Teljes vizsgálati életciklus-kezelés",
+          "Résztvevő-ütemezés és vizit-követés",
+          "AI-vezérelt protokoll (SOA) generálás",
+          "Munkafolyamat-szabványosítás osztályok között"
+        ]
+      },
+      "compliance": {
+        "title": "Integrált megfelelőségi és eHozzájárulási réteg",
+        "description": "Szabályozási dokumentáció, elektronikus hozzájárulás és digitális aláírások kezelése egységes megfelelőségi környezetben.",
+        "features": [
+          "Teljes eHozzájárulási munkafolyamat",
+          "Digitális dokumentumkezelés",
+          "Elektronikus aláírások audit nyomvonallal",
+          "FDA és EU szabályozási összhang"
+        ]
+      },
+      "financial": {
+        "title": "Összehangolt pénzügyi betekintés extra komplexitás nélkül",
+        "description": "Költségvetés-követés a vizsgálati tevékenység mellett átlátható intézményi felügyeletért.",
+        "features": [
+          "Vizsgálati tevékenységhez igazított költségvetés-követés",
+          "Átlátható jelentéskészítés felügyeleti célokra",
+          "Pontos számlázás és egyeztetés támogatása"
+        ]
+      },
+      "irb": {
+        "title": "Egy teljesen integrált IRB munkafolyamat felé",
+        "description": "A StudyFlow fejlődik, hogy tartalmazza a teljes IRB munkafolyamatot, amely összekapcsolja a protokoll-jóváhagyást, a megfelelőség-követést és az operatív végrehajtást egyetlen rendszerbe.",
+        "features": [
+          "Műveletekbe integrált protokoll-jóváhagyás",
+          "Folyamatos megfelelőség-követés",
+          "Egységes szabályozási és végrehajtási pipeline"
+        ]
+      }
+    },
+    "roadmapBadge": "Fejlesztési tervben"
+  },
+  "sponsor": {
+    "badge": "Fő megkülönböztető tényező",
+    "title": "Átlátható felület szponzorok számára",
+    "subtitle": "Szponzori kapcsolatok erősítése átláthatósággal, struktúrával és mérhető teljesítménnyel.",
+    "description": "A StudyFlow lehetővé teszi a kutatási helyszínek és orvosi központok számára, hogy világos, strukturált és átlátható felületet biztosítsanak a szponzoroknak az együttműködéshez — vonzóbbá téve központját a pontosságot, hatékonyságot és munkafolyamat-tisztaságot értékelő szponzorszervezetek számára.",
+    "features": [
+      "Új vizsgálatok központosított benyújtása",
+      "Átlátható munkafolyamat-követés a benyújtástól a jóváhagyásig",
+      "Valós idejű betekintés a vizsgálat előrehaladásába",
+      "Meghatározott KPI-ok a vizsgálati életciklus mentén",
+      "Javított kommunikáció szponzorok és kutatócsapatok között"
+    ],
+    "quote": "Szponzori bizalom növelése következetességgel, átláthatósággal és operatív tisztasággal."
+  },
+  "security": {
+    "title": "Biztonságra, megfelelőségre és skálázhatóságra tervezve",
+    "subtitle": "Az adatvédelem és a megfelelőség az első naptól beépített alapelv.",
+    "badges": ["GDPR", "SOC 2", "HIPAA"],
+    "items": {
+      "cloud": {
+        "title": "Biztonságos felhő-infrastruktúra",
+        "description": "Vállalati szintű felhő-infrastruktúrán üzemel, magas rendelkezésre állással és katasztrófa-helyreállítással."
+      },
+      "encryption": {
+        "title": "Titkosítás mindenhol",
+        "description": "Minden adat titkosítva van átvitel közben (TLS 1.3) és nyugalmi állapotban (AES-256) az érzékeny kutatási adatok védelme érdekében."
+      },
+      "gdpr": {
+        "title": "GDPR-kompatibilis adatkezelés",
+        "description": "Beépített adatvédelmi elvekkel és GDPR-kompatibilis adatfeldolgozási gyakorlatokkal készült."
+      },
+      "rbac": {
+        "title": "Szerepkör-alapú hozzáférés-vezérlés",
+        "description": "Granulált jogosultságkezelés biztosítja, hogy a felhasználók csak a szerepkörükhöz releváns adatokhoz és műveletekhez férjenek hozzá."
+      },
+      "audit": {
+        "title": "Audit-kész architektúra",
+        "description": "Átfogó audit nyomvonalak és naplózás minden rendszerművelet és adatváltozás teljes nyomon követhetőségéért."
+      }
+    }
+  },
+  "outcomes": {
+    "title": "Hatékonyság és kontroll javítására tervezve",
+    "subtitle": "Mérhető javulások abban, ahogyan az orvosi központok kezelik és végrehajtják a klinikai kutatást.",
+    "items": [
+      {
+        "metric": "60%",
+        "label": "Adminisztratív munkateher csökkentése",
+        "description": "Koordinációs feladatok egyszerűsítése és a kutatócsapatok felszabadítása a klinikai munkára."
+      },
+      {
+        "metric": "3×",
+        "label": "Gyorsabb érdekelt fél koordináció",
+        "description": "Kommunikáció javítása osztályok, szponzorok és szabályozó testületek között."
+      },
+      {
+        "metric": "100%",
+        "label": "Vizsgálati átláthatóság",
+        "description": "Valós idejű irányítópultok teljes átláthatóságot biztosítanak a vizsgálat előrehaladásáról és megfelelőségéről."
+      },
+      {
+        "metric": "40%",
+        "label": "Gyorsabb dokumentumfeldolgozás",
+        "description": "Az integrált eHozzájárulási és digitális dokumentum-munkafolyamatok csökkentik az átfutási időket."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Lássa a StudyFlow-t működés közben",
+    "subtitle": "Fedezze fel, hogyan szerezhet orvosi központja teljes kontrollt a klinikai kutatási műveletek és a megfelelőség felett.",
+    "primary": "Demó kérése",
+    "secondary": "Konzultáció egyeztetése"
+  },
+  "footer": {
+    "description": "Vállalati platform a klinikai kutatási műveletek, a megfelelőség és a szponzori együttműködés számára.",
+    "groups": {
+      "product": {
+        "title": "Termék",
+        "overview": "Áttekintés",
+        "econsent": "eHozzájárulás",
+        "sponsor": "Szponzori munkaterület"
+      },
+      "solutions": {
+        "title": "Megoldások",
+        "centers": "Kutatóközpontok",
+        "leadership": "Kórházi vezetés",
+        "finance": "Pénzügyi csapatok"
+      },
+      "company": {
+        "title": "Vállalat",
+        "security": "Biztonság",
+        "about": "Rólunk",
+        "contact": "Kapcsolat"
+      }
+    },
+    "copyright": "StudyFlow. Minden jog fenntartva.",
+    "privacy": "Adatvédelmi irányelvek",
+    "terms": "Felhasználási feltételek"
+  },
+  "dashboard": {
+    "titleBar": "StudyFlow — Irányítópult",
+    "drCohen": "Dr. Cohen",
+    "stats": {
+      "activeStudies": "Aktív vizsgálatok",
+      "participants": "Résztvevők",
+      "pendingApprovals": "Függő jóváhagyások",
+      "complianceAlerts": "Megfelelőségi riasztások"
+    },
+    "progressTitle": "Vizsgálati előrehaladás áttekintése",
+    "progressPeriod": "Utolsó 6 hónap",
+    "studiesTitle": "Aktív vizsgálatok",
+    "viewAll": "Összes megtekintése →",
+    "tableHeaders": {
+      "id": "Azonosító",
+      "study": "Vizsgálat",
+      "status": "Státusz",
+      "enrollment": "Toborzás",
+      "compliance": "Megf."
+    },
+    "studies": [
+      {
+        "id": "SF-2024-001",
+        "name": "Kardiológia III. fázis",
+        "status": "Aktív",
+        "enrollment": "82%",
+        "compliance": "98%"
+      },
+      {
+        "id": "SF-2024-003",
+        "name": "Onkológiai biomarker",
+        "status": "Toborzás",
+        "enrollment": "45%",
+        "compliance": "100%"
+      },
+      {
+        "id": "SF-2024-007",
+        "name": "Neurológiai pilot",
+        "status": "Beállítás",
+        "enrollment": "12%",
+        "compliance": "95%"
+      },
+      {
+        "id": "SF-2024-009",
+        "name": "Gyermekgyógyászati megfigyelés",
+        "status": "Aktív",
+        "enrollment": "71%",
+        "compliance": "97%"
+      }
+    ],
+    "progressBars": [
+      { "label": "Kardiológia III", "pct": 82 },
+      { "label": "Onkológia BM", "pct": 45 },
+      { "label": "Neurológia Pilot", "pct": 12 },
+      { "label": "Gyermekgy. Megf.", "pct": 71 }
+    ],
+    "statValues": {
+      "activeStudies": "12",
+      "activeStudiesTrend": "+2",
+      "participants": "847",
+      "participantsTrend": "+34",
+      "pendingApprovals": "5",
+      "complianceAlerts": "2"
+    }
+  },
+  "sponsorWorkspace": {
+    "titleBar": "StudyFlow — Szponzori munkaterület",
+    "submitNewStudy": "Új vizsgálat benyújtása",
+    "metrics": {
+      "activeStudies": {
+        "label": "Aktív vizsgálatok",
+        "value": "8",
+        "sub": "3 szponzortól"
+      },
+      "approvalTime": {
+        "label": "Átl. jóváhagyási idő",
+        "value": "14 nap",
+        "sub": "cél: 21 nap"
+      },
+      "recruitmentRate": {
+        "label": "Toborzási arány",
+        "value": "87%",
+        "sub": "átlag felett"
+      },
+      "responsiveness": {
+        "label": "Helyszín reaktivitás",
+        "value": "94%",
+        "sub": "30 napos átlag"
+      }
+    },
+    "pipelineTitle": "Vizsgálati pipeline",
+    "pipeline": [
+      { "label": "Benyújtva", "count": 3 },
+      { "label": "Felülvizsgálat", "count": 2 },
+      { "label": "Jóváhagyva", "count": 4 },
+      { "label": "Aktív", "count": 8 },
+      { "label": "Befejezve", "count": 12 }
+    ],
+    "studiesTitle": "Szponzori vizsgálatok",
+    "tableHeaders": {
+      "study": "Vizsgálat",
+      "status": "Státusz",
+      "enrollment": "Toborzás",
+      "response": "Reaktivitás"
+    },
+    "studies": [
+      {
+        "name": "Roche — Onkológia II. fázis",
+        "status": "Aktív",
+        "enrollment": "68%",
+        "responsiveness": "92%"
+      },
+      {
+        "name": "Pfizer — Kardiológia III",
+        "status": "Aktív",
+        "enrollment": "82%",
+        "responsiveness": "95%"
+      },
+      {
+        "name": "Novartis — Neurológiai pilot",
+        "status": "Felülvizsgálat",
+        "enrollment": "—",
+        "responsiveness": "—"
+      }
+    ],
+    "activityTitle": "Legutóbbi tevékenység",
+    "activities": [
+      {
+        "text": "SF-2024-012 protokoll benyújtva a MedPharm által",
+        "time": "2 órája"
+      },
+      {
+        "text": "Helyszín reaktivitási pontszám frissítve: 94%",
+        "time": "5 órája"
+      },
+      {
+        "text": "Toborzási mérföldkő elérve: Kardiológia III",
+        "time": "1 napja"
+      }
+    ]
+  },
+  "demo": {
+    "title": "Demó kérése",
+    "subtitle": "Nézze meg, hogyan alakíthatja át a StudyFlow a klinikai kutatási műveleteit.",
+    "form": {
+      "name": "Teljes név",
+      "email": "E-mail cím",
+      "organization": "Szervezet",
+      "role": "Beosztás",
+      "message": "Üzenet",
+      "submit": "Kérés elküldése",
+      "namePlaceholder": "Adja meg teljes nevét",
+      "emailPlaceholder": "Adja meg e-mail címét",
+      "orgPlaceholder": "Adja meg szervezetét",
+      "rolePlaceholder": "Válassza ki beosztását",
+      "messagePlaceholder": "Írja le igényeit"
+    },
+    "success": "Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.",
+    "error": "Hiba történt. Kérjük, próbálja újra."
+  }
+}

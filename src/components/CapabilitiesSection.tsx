@@ -14,144 +14,111 @@ import {
   Milestone,
   Link,
 } from "lucide-react";
+import type { Dict } from "@/i18n/types";
 
-interface Feature {
-  icon: React.ElementType;
-  text: string;
-}
-
-interface Capability {
-  icon: React.ElementType;
-  iconColor: string;
-  iconBg: string;
-  title: string;
-  description: string;
-  features: Feature[];
-  accent?: boolean;
-}
-
-const capabilities: Capability[] = [
+const capMeta = [
   {
+    key: "execution" as const,
     icon: ClipboardList,
     iconColor: "text-primary",
     iconBg: "bg-blue-50",
-    title: "Standardized and Controlled Study Execution",
-    description:
-      "Manage the full study lifecycle from setup to closeout with structured, repeatable workflows.",
-    features: [
-      { icon: GitBranch, text: "Full study lifecycle management" },
-      { icon: CalendarCheck, text: "Participant scheduling and visit tracking" },
-      { icon: Sparkles, text: "AI-driven protocol (SOA) generation" },
-      { icon: Users, text: "Workflow standardization across departments" },
-    ],
+    featureIcons: [GitBranch, CalendarCheck, Sparkles, Users],
   },
   {
+    key: "compliance" as const,
     icon: FileCheck,
     iconColor: "text-success",
     iconBg: "bg-green-50",
-    title: "Integrated Compliance & eConsent Layer",
-    description:
-      "Manage regulatory documentation, electronic consent, and digital signatures in a unified compliance environment.",
-    features: [
-      { icon: FileSignature, text: "Complete eConsent workflow" },
-      { icon: FileText, text: "Digital document management" },
-      { icon: ShieldCheck, text: "Electronic signatures with audit trail" },
-      { icon: Link, text: "FDA and EU regulatory alignment" },
-    ],
     accent: true,
+    featureIcons: [FileSignature, FileText, ShieldCheck, Link],
   },
   {
+    key: "financial" as const,
     icon: DollarSign,
     iconColor: "text-teal",
     iconBg: "bg-teal/10",
-    title: "Aligned Financial Insight Without Added Complexity",
-    description:
-      "Track budgets alongside study activity for transparent institutional oversight.",
-    features: [
-      { icon: BarChart3, text: "Budget tracking aligned with study activity" },
-      { icon: Receipt, text: "Transparent reporting for oversight" },
-      { icon: DollarSign, text: "Support for accurate billing and reconciliation" },
-    ],
+    featureIcons: [BarChart3, Receipt, DollarSign],
   },
   {
+    key: "irb" as const,
     icon: Milestone,
     iconColor: "text-yellow-700",
     iconBg: "bg-yellow-50",
-    title: "Towards a Fully Integrated IRB Workflow",
-    description:
-      "StudyFlow is evolving to include a complete IRB workflow that connects protocol approval, compliance tracking, and operational execution into a single system.",
-    features: [
-      { icon: GitBranch, text: "Protocol approval integrated with operations" },
-      { icon: ShieldCheck, text: "Continuous compliance tracking" },
-      { icon: Link, text: "Unified regulatory and execution pipeline" },
-    ],
+    featureIcons: [GitBranch, ShieldCheck, Link],
   },
 ];
 
-export default function CapabilitiesSection() {
+export default function CapabilitiesSection({
+  dict,
+}: {
+  dict: Dict["capabilities"];
+}) {
   return (
     <section id="capabilities" className="py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl font-semibold text-primary mb-4">
-            Core Capabilities
+            {dict.title}
           </h2>
-          <p className="text-text-secondary">
-            Four integrated pillars that bring structure, compliance, and
-            visibility to clinical research operations.
-          </p>
+          <p className="text-text-secondary">{dict.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {capabilities.map((cap) => (
-            <div
-              key={cap.title}
-              className={`rounded-xl border p-8 transition-shadow hover:shadow-md ${
-                cap.accent
-                  ? "border-teal/30 bg-teal/[0.02]"
-                  : "border-border-gray bg-white"
-              }`}
-            >
-              <div className="flex items-start gap-4 mb-5">
-                <div
-                  className={`w-10 h-10 rounded-lg ${cap.iconBg} flex items-center justify-center flex-shrink-0`}
-                >
-                  <cap.icon size={20} className={cap.iconColor} />
+          {capMeta.map((meta) => {
+            const cap = dict.items[meta.key];
+            return (
+              <div
+                key={meta.key}
+                className={`rounded-xl border p-8 transition-shadow hover:shadow-md ${
+                  meta.accent
+                    ? "border-teal/30 bg-teal/[0.02]"
+                    : "border-border-gray bg-white"
+                }`}
+              >
+                <div className="flex items-start gap-4 mb-5">
+                  <div
+                    className={`w-10 h-10 rounded-lg ${meta.iconBg} flex items-center justify-center flex-shrink-0`}
+                  >
+                    <meta.icon size={20} className={meta.iconColor} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-primary mb-2">
+                      {cap.title}
+                    </h3>
+                    <p className="text-sm text-text-secondary leading-relaxed">
+                      {cap.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-primary mb-2">
-                    {cap.title}
-                  </h3>
-                  <p className="text-sm text-text-secondary leading-relaxed">
-                    {cap.description}
-                  </p>
-                </div>
-              </div>
 
-              <div className="space-y-3 ml-14">
-                {cap.features.map((f) => (
-                  <div key={f.text} className="flex items-center gap-2.5">
-                    <f.icon
-                      size={14}
-                      className="text-text-tertiary flex-shrink-0"
-                    />
-                    <span className="text-sm text-text-secondary">
-                      {f.text}
+                <div className="space-y-3 ms-14">
+                  {cap.features.map((text: string, i: number) => {
+                    const FIcon = meta.featureIcons[i] ?? meta.featureIcons[0];
+                    return (
+                      <div key={i} className="flex items-center gap-2.5">
+                        <FIcon
+                          size={14}
+                          className="text-text-tertiary flex-shrink-0"
+                        />
+                        <span className="text-sm text-text-secondary">
+                          {text}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {meta.key === "irb" && (
+                  <div className="mt-5 ms-14">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-yellow-50 text-yellow-700 text-xs font-medium rounded-full">
+                      <Milestone size={12} />
+                      {dict.roadmapBadge}
                     </span>
                   </div>
-                ))}
+                )}
               </div>
-
-              {cap.title.includes("IRB") && (
-                <div className="mt-5 ml-14">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-yellow-50 text-yellow-700 text-xs font-medium rounded-full">
-                    <Milestone size={12} />
-                    On the Roadmap
-                  </span>
-                </div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

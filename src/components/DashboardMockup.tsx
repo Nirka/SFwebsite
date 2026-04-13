@@ -5,6 +5,7 @@ import {
   AlertTriangle,
   TrendingUp,
 } from "lucide-react";
+import type { Dict } from "@/i18n/types";
 
 function StatCard({
   icon: Icon,
@@ -31,7 +32,7 @@ function StatCard({
         )}
       </div>
       <p className="text-lg font-semibold text-gray-900">{value}</p>
-      <p className="text-[10px] text-gray-500">{label}</p>
+      <p className="text-[10px] text-gray-500 truncate">{label}</p>
     </div>
   );
 }
@@ -54,7 +55,7 @@ function ProgressBar({
           style={{ width: `${pct}%` }}
         />
       </div>
-      <span className="text-gray-500 w-7 text-right">{pct}%</span>
+      <span className="text-gray-500 w-7 text-end">{pct}%</span>
     </div>
   );
 }
@@ -81,46 +82,17 @@ function StatusBadge({
   );
 }
 
-const studies = [
-  {
-    id: "SF-2024-001",
-    name: "Cardiology Phase III",
-    status: "Active" as const,
-    enrollment: "82%",
-    compliance: "98%",
-  },
-  {
-    id: "SF-2024-003",
-    name: "Oncology Biomarker",
-    status: "Enrolling" as const,
-    enrollment: "45%",
-    compliance: "100%",
-  },
-  {
-    id: "SF-2024-007",
-    name: "Neurology Pilot",
-    status: "Setup" as const,
-    enrollment: "12%",
-    compliance: "95%",
-  },
-  {
-    id: "SF-2024-009",
-    name: "Pediatric Observational",
-    status: "Active" as const,
-    enrollment: "71%",
-    compliance: "97%",
-  },
-];
-
-const statusMap = {
-  Active: "green" as const,
-  Enrolling: "blue" as const,
-  Setup: "yellow" as const,
+const statusMap: Record<string, "green" | "blue" | "yellow" | "gray"> = {
+  Active: "green",
+  Enrolling: "blue",
+  Setup: "yellow",
 };
 
-export default function DashboardMockup() {
+const progressColors = ["bg-teal", "bg-blue-500", "bg-yellow-500", "bg-green-500"];
+
+export default function DashboardMockup({ dict }: { dict: Dict["dashboard"] }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden w-full max-w-lg">
+    <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden w-full max-w-xl">
       {/* Titlebar */}
       <div className="bg-[#1E3A5F] px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -129,14 +101,14 @@ export default function DashboardMockup() {
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
           </div>
-          <span className="text-[11px] text-white/80 ml-2 font-medium">
-            StudyFlow — Dashboard
+          <span className="text-[11px] text-white/80 ms-2 font-medium">
+            {dict.titleBar}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded-full bg-white/20" />
           <div className="h-3 w-px bg-white/20" />
-          <span className="text-[10px] text-white/60">Dr. Cohen</span>
+          <span className="text-[10px] text-white/60">{dict.drCohen}</span>
         </div>
       </div>
 
@@ -146,28 +118,28 @@ export default function DashboardMockup() {
         <div className="grid grid-cols-4 gap-2">
           <StatCard
             icon={Activity}
-            label="Active Studies"
-            value="12"
-            trend="+2"
+            label={dict.stats.activeStudies}
+            value={dict.statValues.activeStudies}
+            trend={dict.statValues.activeStudiesTrend}
             color="text-teal"
           />
           <StatCard
             icon={Users}
-            label="Participants"
-            value="847"
-            trend="+34"
+            label={dict.stats.participants}
+            value={dict.statValues.participants}
+            trend={dict.statValues.participantsTrend}
             color="text-blue-600"
           />
           <StatCard
             icon={ClipboardCheck}
-            label="Pending Approvals"
-            value="5"
+            label={dict.stats.pendingApprovals}
+            value={dict.statValues.pendingApprovals}
             color="text-yellow-600"
           />
           <StatCard
             icon={AlertTriangle}
-            label="Compliance Alerts"
-            value="2"
+            label={dict.stats.complianceAlerts}
+            value={dict.statValues.complianceAlerts}
             color="text-red-500"
           />
         </div>
@@ -176,27 +148,23 @@ export default function DashboardMockup() {
         <div className="bg-white rounded-lg border border-gray-100 p-3">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[11px] font-medium text-gray-700">
-              Study Progress Overview
+              {dict.progressTitle}
             </span>
-            <span className="text-[9px] text-gray-400">Last 6 months</span>
+            <span className="text-[9px] text-gray-400">
+              {dict.progressPeriod}
+            </span>
           </div>
           <div className="space-y-2">
-            <ProgressBar label="Cardiology III" pct={82} color="bg-teal" />
-            <ProgressBar
-              label="Oncology BM"
-              pct={45}
-              color="bg-blue-500"
-            />
-            <ProgressBar
-              label="Neurology Pilot"
-              pct={12}
-              color="bg-yellow-500"
-            />
-            <ProgressBar
-              label="Pediatric Obs"
-              pct={71}
-              color="bg-green-500"
-            />
+            {dict.progressBars.map(
+              (bar: { label: string; pct: number }, i: number) => (
+                <ProgressBar
+                  key={i}
+                  label={bar.label}
+                  pct={bar.pct}
+                  color={progressColors[i]}
+                />
+              )
+            )}
           </div>
         </div>
 
@@ -204,45 +172,66 @@ export default function DashboardMockup() {
         <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
           <div className="px-3 py-2 border-b border-gray-50 flex items-center justify-between">
             <span className="text-[11px] font-medium text-gray-700">
-              Active Studies
+              {dict.studiesTitle}
             </span>
             <span className="text-[9px] text-teal cursor-pointer">
-              View All →
+              {dict.viewAll}
             </span>
           </div>
           <table className="w-full">
             <thead>
               <tr className="text-[9px] text-gray-400 uppercase tracking-wider">
-                <th className="text-left px-3 py-1.5 font-medium">ID</th>
-                <th className="text-left px-3 py-1.5 font-medium">Study</th>
-                <th className="text-left px-3 py-1.5 font-medium">Status</th>
-                <th className="text-right px-3 py-1.5 font-medium">Enroll.</th>
-                <th className="text-right px-3 py-1.5 font-medium">Compl.</th>
+                <th className="text-start px-3 py-1.5 font-medium">
+                  {dict.tableHeaders.id}
+                </th>
+                <th className="text-start px-3 py-1.5 font-medium">
+                  {dict.tableHeaders.study}
+                </th>
+                <th className="text-start px-3 py-1.5 font-medium">
+                  {dict.tableHeaders.status}
+                </th>
+                <th className="text-end px-3 py-1.5 font-medium">
+                  {dict.tableHeaders.enrollment}
+                </th>
+                <th className="text-end px-3 py-1.5 font-medium">
+                  {dict.tableHeaders.compliance}
+                </th>
               </tr>
             </thead>
             <tbody>
-              {studies.map((s) => (
-                <tr
-                  key={s.id}
-                  className="border-t border-gray-50 hover:bg-gray-50/50 transition-colors"
-                >
-                  <td className="px-3 py-1.5 text-[10px] text-gray-500 font-mono">
-                    {s.id}
-                  </td>
-                  <td className="px-3 py-1.5 text-[10px] text-gray-800 font-medium">
-                    {s.name}
-                  </td>
-                  <td className="px-3 py-1.5">
-                    <StatusBadge label={s.status} variant={statusMap[s.status]} />
-                  </td>
-                  <td className="px-3 py-1.5 text-[10px] text-gray-600 text-right">
-                    {s.enrollment}
-                  </td>
-                  <td className="px-3 py-1.5 text-[10px] text-gray-600 text-right">
-                    {s.compliance}
-                  </td>
-                </tr>
-              ))}
+              {dict.studies.map(
+                (s: {
+                  id: string;
+                  name: string;
+                  status: string;
+                  enrollment: string;
+                  compliance: string;
+                }) => (
+                  <tr
+                    key={s.id}
+                    className="border-t border-gray-50 hover:bg-gray-50/50 transition-colors"
+                  >
+                    <td className="px-3 py-1.5 text-[10px] text-gray-500 font-mono">
+                      {s.id}
+                    </td>
+                    <td className="px-3 py-1.5 text-[10px] text-gray-800 font-medium">
+                      {s.name}
+                    </td>
+                    <td className="px-3 py-1.5">
+                      <StatusBadge
+                        label={s.status}
+                        variant={statusMap[s.status] ?? "gray"}
+                      />
+                    </td>
+                    <td className="px-3 py-1.5 text-[10px] text-gray-600 text-end">
+                      {s.enrollment}
+                    </td>
+                    <td className="px-3 py-1.5 text-[10px] text-gray-600 text-end">
+                      {s.compliance}
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>

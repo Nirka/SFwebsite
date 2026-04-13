@@ -1,33 +1,40 @@
 import Logo from "./Logo";
+import type { Dict } from "@/i18n/types";
 
-const footerLinks = [
-  {
-    title: "Product",
-    links: [
-      { label: "Overview", href: "#capabilities" },
-      { label: "eConsent", href: "#capabilities" },
-      { label: "Sponsor Workspace", href: "#sponsor-workspace" },
-    ],
-  },
-  {
-    title: "Solutions",
-    links: [
-      { label: "Research Centers", href: "#who" },
-      { label: "Hospital Leadership", href: "#who" },
-      { label: "Finance Teams", href: "#who" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "Security", href: "#security" },
-      { label: "About", href: "#outcomes" },
-      { label: "Contact", href: "#cta" },
-    ],
-  },
-];
+export default function Footer({
+  dict,
+  lang,
+}: {
+  dict: Dict["footer"];
+  lang: string;
+}) {
+  const footerLinks = [
+    {
+      title: dict.groups.product.title,
+      links: [
+        { label: dict.groups.product.overview, href: "#capabilities" },
+        { label: dict.groups.product.econsent, href: "#capabilities" },
+        { label: dict.groups.product.sponsor, href: "#sponsor-workspace" },
+      ],
+    },
+    {
+      title: dict.groups.solutions.title,
+      links: [
+        { label: dict.groups.solutions.centers, href: "#who" },
+        { label: dict.groups.solutions.leadership, href: "#who" },
+        { label: dict.groups.solutions.finance, href: "#who" },
+      ],
+    },
+    {
+      title: dict.groups.company.title,
+      links: [
+        { label: dict.groups.company.security, href: "#security" },
+        { label: dict.groups.company.about, href: "#outcomes" },
+        { label: dict.groups.company.contact, href: `/${lang}/demo` },
+      ],
+    },
+  ];
 
-export default function Footer() {
   return (
     <footer className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -37,8 +44,7 @@ export default function Footer() {
               <Logo variant="footer" />
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
-              Enterprise platform for clinical research operations, compliance,
-              and sponsor collaboration.
+              {dict.description}
             </p>
           </div>
 
@@ -65,20 +71,20 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/40">
-            &copy; {new Date().getFullYear()} StudyFlow. All rights reserved.
+            &copy; {new Date().getFullYear()} {dict.copyright}
           </p>
           <div className="flex gap-6">
             <a
               href="#"
               className="text-sm text-white/40 hover:text-white/70 transition-colors"
             >
-              Privacy Policy
+              {dict.privacy}
             </a>
             <a
               href="#"
               className="text-sm text-white/40 hover:text-white/70 transition-colors"
             >
-              Terms of Service
+              {dict.terms}
             </a>
           </div>
         </div>
