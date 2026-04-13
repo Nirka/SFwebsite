@@ -56,6 +56,20 @@ export async function generateMetadata({
   return {
     title: dict.metadata.title,
     description: dict.metadata.description,
+    icons: { icon: "/LOGO.png", apple: "/LOGO.png" },
+    openGraph: {
+      title: dict.metadata.title,
+      description: dict.metadata.description,
+      siteName: "StudyFlow",
+      locale: lang,
+      type: "website",
+      url: `https://www.studyflow.cloud/${lang}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.metadata.title,
+      description: dict.metadata.description,
+    },
     alternates: {
       languages: { en: "/en", he: "/he", hu: "/hu", hi: "/hi" },
     },
