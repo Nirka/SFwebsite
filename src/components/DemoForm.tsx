@@ -14,7 +14,7 @@ export default function DemoForm({ dict }: { dict: Dict["demo"]["form"] }) {
     const data = new FormData(form);
 
     try {
-      const res = await fetch("https://formspree.io/f/xpwdgqkj", {
+      const res = await fetch("https://formspree.io/f/mnjlqpkw", {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
