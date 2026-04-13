@@ -29,6 +29,7 @@ export default function Logo({
         viewBox="0 0 140 30"
         className="h-[22px] w-auto"
         xmlns="http://www.w3.org/2000/svg"
+        style={{ direction: "ltr" }}
       >
         <text
           x="0"
