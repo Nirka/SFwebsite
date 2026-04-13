@@ -48,7 +48,12 @@ export default async function DemoPage({
             <p className="text-sm text-text-secondary">{dict.demo.subtitle}</p>
           </div>
 
-          <DemoForm dict={dict.demo.form} />
+          <DemoForm
+            dict={dict.demo.form}
+            successMessage={dict.demo.success}
+            successSub={dict.demo.successSub}
+            errorMessage={dict.demo.error}
+          />
 
           <noscript>
             <p className="mt-4 text-sm text-error text-center">

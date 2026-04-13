@@ -1,23 +1,37 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { CheckCircle } from "lucide-react";
 import type { Dict } from "@/i18n/types";
 
-export default function DemoForm({ dict }: { dict: Dict["demo"]["form"] }) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+export default function DemoForm({
+  dict,
+  successMessage,
+  successSub,
+  errorMessage,
+}: {
+  dict: Dict["demo"]["form"];
+  successMessage: string;
+  successSub: string;
+  errorMessage: string;
+}) {
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
 
     const form = e.currentTarget;
-    const data = new FormData(form);
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
     try {
-      const res = await fetch("https://formspree.io/f/mnjlqpkw", {
+      const res = await fetch("/api/demo", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
       if (res.ok) {
         setStatus("success");
@@ -30,10 +44,27 @@ export default function DemoForm({ dict }: { dict: Dict["demo"]["form"] }) {
     }
   }
 
+  if (status === "success") {
+    return (
+      <div className="text-center py-8">
+        <div className="flex justify-center mb-4">
+          <CheckCircle size={48} className="text-green-500" />
+        </div>
+        <h3 className="text-lg font-semibold text-primary mb-2">
+          {successMessage}
+        </h3>
+        <p className="text-sm text-text-secondary">{successSub}</p>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-primary mb-1.5">
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-primary mb-1.5"
+        >
           {dict.name}
         </label>
         <input
@@ -47,7 +78,10 @@ export default function DemoForm({ dict }: { dict: Dict["demo"]["form"] }) {
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-primary mb-1.5">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-primary mb-1.5"
+        >
           {dict.email}
         </label>
         <input
@@ -62,7 +96,10 @@ export default function DemoForm({ dict }: { dict: Dict["demo"]["form"] }) {
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="organization" className="block text-sm font-medium text-primary mb-1.5">
+          <label
+            htmlFor="organization"
+            className="block text-sm font-medium text-primary mb-1.5"
+          >
             {dict.organization}
           </label>
           <input
@@ -75,7 +112,10 @@ export default function DemoForm({ dict }: { dict: Dict["demo"]["form"] }) {
           />
         </div>
         <div>
-          <label htmlFor="role" className="block text-sm font-medium text-primary mb-1.5">
+          <label
+            htmlFor="role"
+            className="block text-sm font-medium text-primary mb-1.5"
+          >
             {dict.role}
           </label>
           <input
@@ -89,7 +129,10 @@ export default function DemoForm({ dict }: { dict: Dict["demo"]["form"] }) {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-primary mb-1.5">
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-primary mb-1.5"
+        >
           {dict.message}
         </label>
         <textarea
@@ -100,6 +143,10 @@ export default function DemoForm({ dict }: { dict: Dict["demo"]["form"] }) {
           className="w-full px-4 py-2.5 text-sm border border-border-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal transition-colors resize-none"
         />
       </div>
+
+      {status === "error" && (
+        <p className="text-sm text-red-600 text-center">{errorMessage}</p>
+      )}
 
       <button
         type="submit"

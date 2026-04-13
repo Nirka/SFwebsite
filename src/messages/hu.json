@@ -383,7 +383,8 @@
       "rolePlaceholder": "Válassza ki beosztását",
       "messagePlaceholder": "Írja le igényeit"
     },
-    "success": "Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.",
+    "success": "Köszönjük! Kérését megkaptuk.",
+    "successSub": "Ellenőrizze a postaládáját a megerősítő e-mailért.",
     "error": "Hiba történt. Kérjük, próbálja újra."
   }
 }

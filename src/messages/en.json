@@ -383,7 +383,8 @@
       "rolePlaceholder": "Select your role",
       "messagePlaceholder": "Tell us about your needs"
     },
-    "success": "Thank you! We'll be in touch soon.",
+    "success": "Thank you! Your request has been received.",
+    "successSub": "Check your inbox for a confirmation email.",
     "error": "Something went wrong. Please try again."
   }
 }
