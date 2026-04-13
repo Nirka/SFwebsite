@@ -20,10 +20,10 @@ function MetricCard({
   sub: string;
 }) {
   return (
-    <div className="bg-white rounded-lg border border-gray-100 p-3">
+    <div className="bg-white rounded-lg border border-gray-100 p-3 min-w-0 overflow-hidden">
       <div className="flex items-center gap-1.5 mb-1">
-        <Icon size={12} className="text-teal" />
-        <span className="text-[10px] text-gray-500">{label}</span>
+        <Icon size={12} className="text-teal shrink-0" />
+        <span className="text-[10px] text-gray-500 truncate">{label}</span>
       </div>
       <p className="text-lg font-semibold text-gray-900">{value}</p>
       <p className="text-[10px] text-gray-400">{sub}</p>
@@ -49,7 +49,7 @@ const pipelineColors = [
 
 export default function SponsorMockup({ dict }: { dict: Dict["sponsorWorkspace"] }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden w-full max-w-xl">
+    <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden w-full max-w-xl min-w-0">
       {/* Titlebar */}
       <div
         className="px-4 py-2.5 flex items-center justify-between"
@@ -71,9 +71,9 @@ export default function SponsorMockup({ dict }: { dict: Dict["sponsorWorkspace"]
         </button>
       </div>
 
-      <div className="p-4 space-y-4 bg-[#F7F9FB]">
+      <div className="p-4 space-y-4 bg-[#F7F9FB] overflow-hidden">
         {/* Metrics */}
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-4 gap-2 min-w-0">
           {metricKeys.map((key, i) => {
             const Icon = metricIcons[i];
             const m = dict.metrics[key];
@@ -127,7 +127,7 @@ export default function SponsorMockup({ dict }: { dict: Dict["sponsorWorkspace"]
               {dict.studiesTitle}
             </span>
           </div>
-          <table className="w-full">
+          <table className="w-full table-fixed">
             <thead>
               <tr className="text-[9px] text-gray-400 uppercase tracking-wider">
                 <th className="text-start px-3 py-1.5 font-medium">

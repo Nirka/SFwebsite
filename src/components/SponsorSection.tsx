@@ -76,7 +76,7 @@ export default function SponsorSection({
           </div>
 
           {/* Right - Mockup */}
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="relative flex justify-center lg:justify-end min-w-0">
             <div
               className="absolute -inset-4 rounded-3xl opacity-15 blur-3xl pointer-events-none"
               style={{
@@ -84,7 +84,7 @@ export default function SponsorSection({
                   "linear-gradient(135deg, #1E3A5F 0%, #2F7F7F 50%, #4CAF50 100%)",
               }}
             />
-            <div className="relative">
+            <div className="relative w-full overflow-hidden">
               <SponsorMockup dict={sponsorWorkspaceDict} />
             </div>
           </div>

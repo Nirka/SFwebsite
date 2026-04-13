@@ -68,7 +68,7 @@ export default function HeroSection({
           </div>
 
           {/* Right - Mockup */}
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="relative flex justify-center lg:justify-end min-w-0">
             <div
               className="absolute -inset-4 rounded-3xl opacity-20 blur-3xl pointer-events-none"
               style={{
@@ -76,7 +76,7 @@ export default function HeroSection({
                   "linear-gradient(135deg, #2F7F7F 0%, #4CAF50 50%, #FBC02D 100%)",
               }}
             />
-            <div className="relative">
+            <div className="relative w-full overflow-hidden">
               <DashboardMockup dict={dashboardDict} />
             </div>
           </div>

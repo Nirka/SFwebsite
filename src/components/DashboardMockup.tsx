@@ -21,7 +21,7 @@ function StatCard({
   color: string;
 }) {
   return (
-    <div className="bg-white rounded-lg border border-gray-100 p-3 flex flex-col gap-1">
+    <div className="bg-white rounded-lg border border-gray-100 p-3 flex flex-col gap-1 min-w-0 overflow-hidden">
       <div className="flex items-center justify-between">
         <Icon size={14} className={color} />
         {trend && (
@@ -92,7 +92,7 @@ const progressColors = ["bg-teal", "bg-blue-500", "bg-yellow-500", "bg-green-500
 
 export default function DashboardMockup({ dict }: { dict: Dict["dashboard"] }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden w-full max-w-xl">
+    <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden w-full max-w-xl min-w-0">
       {/* Titlebar */}
       <div className="bg-[#1E3A5F] px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -113,9 +113,9 @@ export default function DashboardMockup({ dict }: { dict: Dict["dashboard"] }) {
       </div>
 
       {/* Content */}
-      <div className="p-4 space-y-4 bg-[#F7F9FB]">
+      <div className="p-4 space-y-4 bg-[#F7F9FB] overflow-hidden">
         {/* Stats row */}
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-4 gap-2 min-w-0">
           <StatCard
             icon={Activity}
             label={dict.stats.activeStudies}
@@ -178,7 +178,7 @@ export default function DashboardMockup({ dict }: { dict: Dict["dashboard"] }) {
               {dict.viewAll}
             </span>
           </div>
-          <table className="w-full">
+          <table className="w-full table-fixed">
             <thead>
               <tr className="text-[9px] text-gray-400 uppercase tracking-wider">
                 <th className="text-start px-3 py-1.5 font-medium">
