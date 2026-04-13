@@ -1,18 +1,17 @@
 import { ArrowRight } from "lucide-react";
+import type { Dict } from "@/i18n/types";
 
-export default function SolutionSection() {
+export default function SolutionSection({ dict }: { dict: Dict["solution"] }) {
+  const hubLines = dict.hubLabel.split("\n");
+
   return (
     <section className="py-20 lg:py-28 bg-bg-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl font-semibold text-primary mb-4">
-            A Unified Operational and Compliance Layer
+            {dict.title}
           </h2>
-          <p className="text-text-secondary">
-            StudyFlow centralizes clinical research management into a single
-            platform — enabling structured workflows, real-time visibility, and
-            consistent execution across all studies.
-          </p>
+          <p className="text-text-secondary">{dict.subtitle}</p>
         </div>
 
         {/* System diagram */}
@@ -39,10 +38,10 @@ export default function SolutionSection() {
                   </svg>
                 </div>
                 <h4 className="text-sm font-semibold text-primary mb-1">
-                  Operations
+                  {dict.operations.title}
                 </h4>
                 <p className="text-xs text-text-secondary">
-                  Study lifecycle, scheduling, participant tracking
+                  {dict.operations.description}
                 </p>
               </div>
 
@@ -50,23 +49,25 @@ export default function SolutionSection() {
               <div className="flex flex-col items-center">
                 <div className="hidden md:flex items-center gap-3 mb-4">
                   <div className="w-8 h-px bg-border-gray" />
-                  <ArrowRight size={14} className="text-teal" />
+                  <ArrowRight size={14} className="text-teal rtl:scale-x-[-1]" />
                 </div>
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg"
                   style={{
-                    background:
-                      "linear-gradient(135deg, #2F7F7F, #4CAF50)",
+                    background: "linear-gradient(135deg, #2F7F7F, #4CAF50)",
                   }}
                 >
                   <span className="text-white text-xs font-bold text-center leading-tight">
-                    Study
-                    <br />
-                    Flow
+                    {hubLines.map((line, i) => (
+                      <span key={i}>
+                        {i > 0 && <br />}
+                        {line}
+                      </span>
+                    ))}
                   </span>
                 </div>
                 <div className="hidden md:flex items-center gap-3 mt-4">
-                  <ArrowRight size={14} className="text-teal" />
+                  <ArrowRight size={14} className="text-teal rtl:scale-x-[-1]" />
                   <div className="w-8 h-px bg-border-gray" />
                 </div>
               </div>
@@ -89,10 +90,10 @@ export default function SolutionSection() {
                   </svg>
                 </div>
                 <h4 className="text-sm font-semibold text-primary mb-1">
-                  Compliance
+                  {dict.compliance.title}
                 </h4>
                 <p className="text-xs text-text-secondary">
-                  eConsent, documents, regulatory workflows
+                  {dict.compliance.description}
                 </p>
               </div>
             </div>
@@ -120,11 +121,10 @@ export default function SolutionSection() {
                     </svg>
                   </div>
                   <h4 className="text-sm font-semibold text-primary mb-1">
-                    Sponsors
+                    {dict.sponsors.title}
                   </h4>
                   <p className="text-xs text-text-secondary">
-                    Transparent collaboration, KPIs, and study pipeline
-                    visibility
+                    {dict.sponsors.description}
                   </p>
                 </div>
               </div>

@@ -1,7 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import DashboardMockup from "./DashboardMockup";
+import type { Dict } from "@/i18n/types";
 
-export default function HeroSection() {
+export default function HeroSection({
+  dict,
+  dashboardDict,
+}: {
+  dict: Dict["hero"];
+  dashboardDict: Dict["dashboard"];
+}) {
   return (
     <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
       {/* Subtle background accent */}
@@ -23,27 +30,24 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - Text */}
-          <div className="max-w-xl">
+          <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-teal/5 border border-teal/15 rounded-full mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-teal" />
               <span className="text-xs font-medium text-teal">
-                Enterprise Clinical Research Platform
+                {dict.badge}
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-semibold text-primary leading-tight tracking-tight mb-6">
-              Full Control Over Clinical Research Operations
+              {dict.title}
             </h1>
 
             <p className="text-lg text-text-secondary leading-relaxed mb-4">
-              Unify workflows, compliance, participants, and documentation — in
-              one enterprise platform built for medical centers.
+              {dict.subtitle}
             </p>
 
             <p className="text-base text-text-tertiary leading-relaxed mb-8">
-              StudyFlow brings structure and visibility to clinical research by
-              connecting operational management, regulatory processes, and
-              sponsor collaboration in real time.
+              {dict.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -51,21 +55,20 @@ export default function HeroSection() {
                 href="#cta"
                 className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-light rounded-lg transition-colors shadow-sm"
               >
-                Request Demo
+                {dict.ctaPrimary}
               </a>
               <a
                 href="#capabilities"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-primary border border-border-gray hover:bg-bg-light rounded-lg transition-colors"
               >
-                See How It Works
-                <ArrowRight size={16} />
+                {dict.ctaSecondary}
+                <ArrowRight size={16} className="rtl:scale-x-[-1]" />
               </a>
             </div>
           </div>
 
           {/* Right - Mockup */}
-          <div className="relative flex justify-center lg:justify-end overflow-x-auto">
-            {/* Gradient glow behind mockup */}
+          <div className="relative flex justify-center lg:justify-end">
             <div
               className="absolute -inset-4 rounded-3xl opacity-20 blur-3xl pointer-events-none"
               style={{
@@ -73,8 +76,8 @@ export default function HeroSection() {
                   "linear-gradient(135deg, #2F7F7F 0%, #4CAF50 50%, #FBC02D 100%)",
               }}
             />
-            <div className="relative min-w-[340px]">
-              <DashboardMockup />
+            <div className="relative">
+              <DashboardMockup dict={dashboardDict} />
             </div>
           </div>
         </div>
